@@ -11,11 +11,18 @@ public class Transaksi {
     private Pembayaran pembayaran;
     private int omzet = 0;
 
-    public Transaksi(String nama, int jumlah, Pembayaran pembayaran, int omzet){
+    public Transaksi(String nama, int jumlah, int omzet, int k){
         setNama(nama);
         setJumlah(jumlah);
-        setPembayaran(pembayaran);
         setOmzet(omzet);
+        switch (k){
+            case 0 : pembayaran = new Upah('o',jumlah,omzet); break;
+            case 1 : pembayaran = new Upah('s',jumlah,omzet); break;
+            case 2 : pembayaran = new Upah('m',jumlah,omzet); break;
+            case 3 : pembayaran = new Gaji('s',jumlah); break;
+            case 4 : pembayaran = new Gaji('k',jumlah); break;
+            case 5 : pembayaran = new Gaji('m',jumlah); break;
+        }
     }
 
     public String getNama() {

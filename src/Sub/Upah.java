@@ -12,6 +12,7 @@ public class Upah extends Pembayaran {
 
     public Upah(){
         setPekerjaan("");
+        setJenis("Upah");
         setJumlah(0);
         setBonus(0);
         setNilai(0);
@@ -21,8 +22,9 @@ public class Upah extends Pembayaran {
 
     public Upah(char k, int jumlah, int omzet){
         cariJenis(k);
+        setJenis("Upah");
         setJumlah(jumlah);
-        setOmzet(0);
+        setOmzet(omzet);
         setBonus(3000000);
     }
 
@@ -37,7 +39,7 @@ public class Upah extends Pembayaran {
 
     @Override
     public int getTotalBonus() {
-        if(!getPekerjaan().equalsIgnoreCase("Operator") && omzet >= targetOmzet){
+        if(omzet >= targetOmzet){
             return getBonus();
         }else{
             return 0;
@@ -57,7 +59,7 @@ public class Upah extends Pembayaran {
 
     @Override
     public int getSubtotal() {
-        return getNilai() + getTotalBonus() - getPajak();
+        return getNilai()*getJumlah() + getTotalBonus() - getPajak();
     }
 
     public int getTargetOmzet() {

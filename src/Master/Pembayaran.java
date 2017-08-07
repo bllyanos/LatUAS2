@@ -5,6 +5,7 @@ package Master;
  */
 public abstract class Pembayaran {
     private String pekerjaan;
+    private String jenis;
     private int jumlah;
     private int nilai;
     private int bonus;
@@ -13,6 +14,14 @@ public abstract class Pembayaran {
     public abstract int getTotalBonus();
     public abstract int getPajak();
     public abstract int getSubtotal();
+
+    public String getJenis() {
+        return jenis;
+    }
+
+    public void setJenis(String jenis) {
+        this.jenis = jenis;
+    }
 
     public int getBonus() {
         return bonus;

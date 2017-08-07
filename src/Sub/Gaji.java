@@ -12,11 +12,13 @@ public class Gaji extends Pembayaran {
         setJumlah(0);
         setBonus(0);
         setNilai(0);
+        setJenis("Gaji");
     }
 
     public Gaji(char k, int jumlah){
         cariJenis(k);
         setJumlah(jumlah);
+        setJenis("Gaji");
     }
 
     @Override
