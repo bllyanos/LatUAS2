@@ -41,12 +41,12 @@ public class DataTransaksi implements InOut {
 
     @Override
     public void cetakJudul() {
-        System.out.printf("");
+        System.out.printf("%3s %10s %10s %10s %10s %10s %10s %10s %10s \n","No","Nama","Pekerjaan","Jumlah","Upah/Gaji","Omzet","Bonus","Pajak","Total");
     }
 
     @Override
     public void cetakGaris() {
-
+        System.out.printf("---------------------------------------------------------------------------------------------\n");
     }
 
     @Override
@@ -84,10 +84,15 @@ public class DataTransaksi implements InOut {
     @Override
     public void outputData() {
         j = i;
+        cetakGaris();
+        cetakJudul();
+        cetakGaris();
         for(i = 0; i < j ; i++){
             cetakData(i+1, trans[i].getNama(), trans[i].getPembayaran().getPekerjaan(),trans[i].getJumlah(), trans[i].getPembayaran().getNilai(), trans[i].getOmzet(),
                     trans[i].getPembayaran().getTotalBonus(), trans[i].getPembayaran().getPajak(),trans[i].getPembayaran().getSubtotal());
         }
+        cetakGaris();
+        cetakGaris();
     }
 
 
