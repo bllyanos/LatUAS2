@@ -46,12 +46,18 @@ public class Upah extends Pembayaran {
 
     @Override
     public int getPajak() {
-        return 0;
+        int totalGaji;
+        totalGaji = getNilai()*getJumlah() + getTotalBonus();
+        if(totalGaji > 2500000){
+            return(totalGaji-2500000) / 10;
+        }else{
+            return 0;
+        }
     }
 
     @Override
     public int getSubtotal() {
-        return 0;
+        return getNilai() + getTotalBonus() - getPajak();
     }
 
     public int getTargetOmzet() {
